@@ -149,7 +149,6 @@ class Badger2040:
         """
         pass
 
-    @property
     def pressed(self, button: int) -> bool:
         pass
 
