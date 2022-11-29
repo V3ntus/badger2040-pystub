@@ -17,6 +17,9 @@ classifiers = [
     "Operating System :: OS Independent",
 ]
 
+[tools.setuptools]
+packages = ["badger2040"]
+
 [project.urls]
 "Homepage" = "https://github.com/V3ntus/badger2040-pystub"
 "Bug Tracker" = "https://github.com/V3ntus/badger2040-pystub/issues"
