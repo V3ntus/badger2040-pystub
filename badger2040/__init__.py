@@ -6,8 +6,8 @@ BUTTON_C: int           = 14
 BUTTON_D: int           = 15
 BUTTON_DOWN: int        = 11
 BUTTON_E: int           = 11
-BUTTON_UP:int           = 15
-BUTTON_USER:int         = 23
+BUTTON_UP: int          = 15
+BUTTON_USER: int        = 23
 
 # Update speeds
 UPDATE_NORMAL: int      = 0
@@ -16,8 +16,8 @@ UPDATE_FAST: int        = 2
 UPDATE_TURBO: int       = 3
 
 # System speeds
-SYSTEM_VERY_SLOW:int    = 0 # 4 MHz if on battery, 48 MHz if connected to USB
-SYSTEM_SLOW:int         = 1 # 12 MHz if on battery, 48 MHz if connected to USB
+SYSTEM_VERY_SLOW: int   = 0 # 4 MHz if on battery, 48 MHz if connected to USB
+SYSTEM_SLOW: int        = 1 # 12 MHz if on battery, 48 MHz if connected to USB
 SYSTEM_NORMAL: int      = 2 # 48 MHz
 SYSTEM_FAST: int        = 3 # 133 MHz
 SYSTEM_TURBO: int       = 4 # 250 MHz
@@ -36,7 +36,7 @@ PIN_BUSY: int           = 26
 
 # Power Pins
 PIN_VREF_POWER: int     = 27
-PIN_VBUS_DETECT : int   = 24
+PIN_VBUS_DETECT: int    = 24
 PIN_1V2_REF: int        = 28
 PIN_BATTERY: int        = 29
 PIN_ENABLE_3V3: int     = 10
@@ -47,7 +47,8 @@ PIN_LED: int            = 25
 
 class Badger2040:
     def __init__(self):
-        print("Badger2040 Class init NOTICE: This class does not implement functionality, but only serves as a stub for documentation purposes.")
+        print("Badger2040 Class init NOTICE: This class does not implement functionality, "
+              "but only serves as a stub for documentation purposes.")
         pass
 
     @property
@@ -310,4 +311,3 @@ class Badger2040:
     @staticmethod
     def system_speed(speed) -> None:
         pass
-
