@@ -55,7 +55,7 @@ class Badger2040:
     def is_busy(self) -> bool:
         pass
 
-    def update_speed(self, speed: int) -> None:
+    def set_update_speed(self, speed: int) -> None:
         """
         Badger 2040 is capable of updating the display at multiple different speeds.
         These offer a tradeoff between the quality of the final image and the speed of the update.
@@ -75,7 +75,7 @@ class Badger2040:
         """
         Starts a full update of the screen. Will block until the update has finished.
 
-        Update takes no parameters, but the update time will vary depending on which update_speed you've selected.
+        Update takes no parameters, but the update time will vary depending on which set_update_speed you've selected.
         """
         pass
 
@@ -105,15 +105,6 @@ class Badger2040:
     def halt(self) -> None:
         pass
 
-    def invert(self, invert: bool) -> None:
-        """
-        Badger 2040 can invert all your display data for a quick and easy dark mode:
-
-        :param invert: True to invert the display, False to return to normal.
-        :type invert: bool
-        """
-        pass
-
     def led(self, brightness: int) -> None:
         """
         The white indicator LED can be controlled, with brightness ranging from 0 (off) to 255:
@@ -122,7 +113,7 @@ class Badger2040:
         """
         pass
 
-    def font(self, font: str) -> None:
+    def set_font(self, font: str) -> None:
         """
         Set the font vector.
         "sans", "gothic", "cursive", "serif", "serif_italic", "bitmap6", "bitmap8", "bitmap14_outline"
@@ -132,7 +123,7 @@ class Badger2040:
         """
         pass
 
-    def pen(self, color: int) -> None:
+    def set_pen(self, color: int) -> None:
         """
         Set the pen color. 0 to 15
 
@@ -141,7 +132,7 @@ class Badger2040:
         """
         pass
 
-    def thickness(self, thickness: int) -> None:
+    def set_thickness(self, thickness: int) -> None:
         """
         Set the pen thickness in pixels.
 
@@ -209,64 +200,15 @@ class Badger2040:
         """
         pass
 
-    def image(self, data: bytearray, w: int = 296, h: int = 128, x: int = 0, y: int = 0) -> None:
-        """
-        Draw an image at the given coordinates. Must be a multiple of 8 pixels wide (because reasons).
-        You will normally be using a bytearray as your source of data.
-
-        To load an image you must first allocate a bytearray big enough to store it.
-        The formula is WIDTH * HEIGHT / 8 since there are eight image pixels in every byte (one bit per pixels
-        indicating either 1 black or 0 white)::
-
-            my_image = bytearray(int(296 * 128 / 8))
-
-        You can then open your file and read it into your bytearray::
-
-            open("my_image.bin", "r").readinto(my_image)
-
-        And finally display it::
-
-            screen = badger2040.Badger2040()
-            screen.image(my_image)
-            screen.update()
-
-        :param data: raw image data 1bpp
-        :type data: bytearray
-        :param w: width of image in pixels
-        :type w: int
-        :param h: height of image in pixels
-        :type h: int
-        :param x: destination x coordinate
-        :type x: int
-        :param y: destination y coordinate
-        :type y: int
-        :return: None
-        :rtype: None
-        """
-        pass
-
-    def icon(self, data: bytearray, icon_index: int, sheet_size: int, icon_size: int = 64, dx: int = 0, dy: int = 0) -> None:
-        """
-        Copies a portion from an icon sheet onto the screen at x/y
-
-        :param data: raw icon data 1bpp
-        :type data: bytearray
-        :param icon_index: location of icon in sheet, leftmost is 0
-        :type icon_index: int
-        :param sheet_size: width of the icon sheet in pixels
-        :type sheet_size: int
-        :param icon_size: size of the icon in pixels (mult of 8
-        :type icon_size: int
-        :param dx: destination x coordinate
-        :type dx: int
-        :param dy: destination y coordinate
-        :type dy: int
-        :return: None
-        :rtype: None
-        """
-        pass
-
-    def text(self, message: str, x: int, y: int, scale: float = None, rotation: float = None, letter_spacing: int = 1) -> None:
+    def text(
+        self,
+        message: str,
+        x: int,
+        y: int,
+        scale: float = None,
+        rotation: float = None,
+        letter_spacing: int = 1,
+    ) -> None:
         """
         Draw text on the screen.
 
